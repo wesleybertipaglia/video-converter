@@ -39,19 +39,19 @@ pip install -r requirements.txt
 
 ```bash
 # Convert a video to MP4
-python3 src/main.py convert input_videos/example.mkv output.mp4
+python3 main.py convert example.mkv example.mp4
 ```
 
 2. Compress a video file
 ```bash
 # Compress a video with a specific CRF value
-python3 src/main.py compress input_videos/example.mp4 output_compressed.mp4 --crf 24
+python3 main.py compress example.mp4 example.mp4 --crf 24
 ```
 
 3. Change the resolution of a video file
 ```bash
 # Upscale a video to 720p
-python3 src/main.py upscale input_videos/example.mp4 output_720p.mp4 --resolution 720p
+python3 main.py upscale example.mp4 example.mp4 --resolution 720p
 ```
 
 ## Contributing
