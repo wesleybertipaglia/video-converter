@@ -1,11 +1,11 @@
 import ffmpeg
-from normalize import normalize_name
+from .save import save_file
 
 def compress(input_file, output_file, crf=28):
     """Compress the video to reduce file size with specified CRF (default 28)."""
     try:
         output_extension = output_file.split('.')[-1].lower()
-        normalized_output_file = f"{normalize_name(output_file)}.{output_extension}"
+        normalized_output_file = save_file(output_file)
 
         if output_extension in ['mp4', 'mkv']:
             vcodec = 'libx264'

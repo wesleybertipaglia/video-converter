@@ -1,11 +1,11 @@
 import ffmpeg
-from normalize import normalize_name
+from .save import save_file
 
 def convert(input_file, output_file):
     """Convert any video format to a specified format with H.264 (if compatible) codec."""
     try:
         output_extension = output_file.split('.')[-1].lower()
-        normalized_output_file = f"{normalize_name(output_file)}.{output_extension}"
+        normalized_output_file = save_file(output_file)
 
         if output_extension in ['mp4', 'mkv']:
             vcodec = 'libx264'
@@ -23,7 +23,7 @@ def convert(input_file, output_file):
             preset='fast',
             map_metadata=-1
         ).run(overwrite_output=True)
-        
+
         print(f"Converted {input_file} to {output_extension.upper()} format as {normalized_output_file}.")
     except ffmpeg.Error as e:
         print(f"Error in converting to {output_extension.upper()}:", e.stderr.decode())

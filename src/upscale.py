@@ -1,11 +1,11 @@
 import ffmpeg
-from normalize import normalize_name
+from .save import save_file
 
 def upscale(input_file, output_file, resolution='720p'):
     """Upscale the video to the specified resolution (default 720p)."""
     try:
         output_extension = output_file.split('.')[-1].lower()
-        normalized_output_file = f"{normalize_name(output_file)}.{output_extension}"
+        normalized_output_file = save_file(output_file)
 
         resolutions = { 
             '480p': (854, 480),
