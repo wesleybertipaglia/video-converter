@@ -3,7 +3,7 @@ from .normalize import normalize_name
 
 def save_file(output_file):
     """Normalizes the file name and ensures the output directory exists."""
-    output_dir = "../done"
+    output_dir = "./done"
     
     output_extension = output_file.split('.')[-1].lower()
     
